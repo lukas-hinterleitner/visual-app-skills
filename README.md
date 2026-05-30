@@ -51,7 +51,22 @@ your app.
 
 ## Install
 
-### Option A — Claude Code plugin (recommended)
+### Option A — `skills` CLI (recommended; works across 18+ agents)
+
+Cross-agent install via Vercel's [`skills`](https://skills.sh) CLI — Claude
+Code, Cursor, Codex, Copilot, Gemini, Windsurf, Cline, and more:
+
+```bash
+npx skills add lukas-hinterleitner/visual-app-skills            # all three skills
+npx skills add lukas-hinterleitner/visual-app-skills \
+  --skill flutter-test-android-visually                         # just one
+```
+
+It git-clones the repo (so the shared core resolves) and installs each skill
+into your agent's skills directory, dereferencing the symlinks. Installs also
+surface the collection on the [skills.sh](https://skills.sh) leaderboard.
+
+### Option B — Claude Code plugin
 
 ```text
 /plugin marketplace add lukas-hinterleitner/visual-app-skills
@@ -61,7 +76,7 @@ your app.
 This clones the whole repo, so the shared core resolves automatically. The
 three skills become available as `visual-app-skills:<skill-name>`.
 
-### Option B — drop-in via the installer (any agent)
+### Option C — drop-in via the installer (any agent)
 
 ```bash
 git clone https://github.com/lukas-hinterleitner/visual-app-skills.git
@@ -74,7 +89,7 @@ cd visual-app-skills
 `install.sh` **dereferences** the shared symlinks, so each installed skill
 folder is fully self-contained and works with no dependency on this repo.
 
-### Option C — manual copy
+### Option D — manual copy
 
 ```bash
 cp -RL visual-app-skills/skills/flutter-test-android-visually ~/.claude/skills/
@@ -82,7 +97,7 @@ cp -RL visual-app-skills/skills/flutter-test-android-visually ~/.claude/skills/
 
 > ⚠️ Use `cp -R**L**` (capital L — dereference symlinks). A plain `cp -r` would
 > copy the shared files as dangling symlinks, because the skills share their
-> common core via symlinks (see below). Options A and B handle this for you.
+> common core via symlinks (see below). Options A–C handle this for you.
 
 ## How it works
 
