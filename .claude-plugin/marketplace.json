@@ -1,0 +1,50 @@
+{
+  "name": "visual-app-skills",
+  "owner": {
+    "name": "Lukas Hinterleitner",
+    "url": "https://github.com/lukas-hinterleitner"
+  },
+  "metadata": {
+    "description": "Agent skills for visually testing mobile apps on Android — run the app on a device or emulator, capture real screenshots via adb, read the logs, and verify the UI rendered correctly.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "visual-app-skills",
+      "source": "./",
+      "strict": false,
+      "description": "Visually verify, on a real Android device or emulator, that a code change rendered correctly — Flutter, React Native/Expo, and native Android. Screenshots via adb + log analysis, with an optional Figma diff.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Lukas Hinterleitner"
+      },
+      "homepage": "https://github.com/lukas-hinterleitner/visual-app-skills",
+      "repository": "https://github.com/lukas-hinterleitner/visual-app-skills",
+      "license": "Apache-2.0",
+      "keywords": [
+        "visual-testing",
+        "screenshot",
+        "android",
+        "flutter",
+        "react-native",
+        "adb",
+        "ui-testing"
+      ],
+      "category": "testing",
+      "tags": [
+        "android",
+        "flutter",
+        "react-native",
+        "visual-testing",
+        "screenshot-testing",
+        "adb",
+        "emulator"
+      ],
+      "skills": [
+        "./skills/flutter-test-android-visually",
+        "./skills/react-native-test-android-visually",
+        "./skills/native-android-test-visually"
+      ]
+    }
+  ]
+}

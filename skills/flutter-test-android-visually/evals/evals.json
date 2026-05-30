@@ -1,0 +1,33 @@
+{
+  "skill_name": "flutter-test-android-visually",
+  "evals": [
+    {
+      "id": 1,
+      "name": "vague-test-the-app",
+      "prompt": "Can you test the app on Android and let me know if the home screen looks OK after my last change?",
+      "expected_output": "Agent runs preflight (check-devices.sh, flutter --version), discovers the run command from CLAUDE.md/README (including any mandatory --target / --dart-define flags), launches via launch.sh in the background, waits for the 'Flutter run key commands' banner plus the first frame, captures a screenshot via snap.sh, reads the PNG + run log, and reports a concrete verdict referencing the screenshot path.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "multi-entry-target",
+      "prompt": "Run my Flutter app on the emulator — note it has separate Android and iOS entry points.",
+      "expected_output": "Agent recognizes a multi-entry app, reads references/flutter.md, finds the correct --target (e.g. lib/main_android.dart) from the project docs rather than running bare `flutter run` (which may throw by design), pins -d <id>, waits for the banner, screenshots, and verdicts. Does not give up before a cold Gradle build finishes (poll, don't fixed-sleep).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "figma-comparison-optional",
+      "prompt": "I redesigned the capture screen to match this Figma file: https://www.figma.com/design/ABC123/App?node-id=1-2 — does the actual Android UI match?",
+      "expected_output": "Agent launches the app, navigates to the screen, screenshots it, and (only because a Figma URL was given) follows references/figma-comparison.md: fetches the node via the Figma MCP tool, reads both PNGs, and compares layout/color/typography/spacing by relative proportions, not pixels. If no Figma MCP server is configured, it says so and falls back to verifying against the stated intent.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "ambiguous-see-changes",
+      "prompt": "see the visual changes",
+      "expected_output": "Short ambiguous prompt — agent infers 'run the app and report what's visible', goes through the capture loop, and produces a verdict. If it can't tell which screen 'changes' refers to, it screenshots the entry screen, describes it, and asks the user to specify.",
+      "files": []
+    }
+  ]
+}

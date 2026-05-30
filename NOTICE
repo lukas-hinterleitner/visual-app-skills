@@ -1,0 +1,37 @@
+visual-app-skills
+Copyright 2026 Lukas Hinterleitner
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+these files except in compliance with the License. A copy of the License is in
+the LICENSE file at the root of this repository, or at
+http://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------------------------------------------------------
+
+Third-party tools invoked at runtime (NOT bundled or redistributed)
+
+The skills in this repository instruct an agent to invoke the following tools.
+None of them is included, vendored, or redistributed here — they are
+user-installed prerequisites, and invoking a separate executable does not make
+this project a derivative work of it. Their license obligations therefore stay
+with the user's own installation.
+
+  - Android SDK Platform-Tools (`adb`)  — Apache License 2.0 — Google LLC / AOSP
+  - Flutter SDK (`flutter` CLI)          — BSD 3-Clause       — Google LLC
+  - Gradle                               — Apache License 2.0 — Gradle Inc.
+  - Node.js / React Native / Expo CLIs   — MIT                — (for RN/Expo projects)
+  - A Figma MCP server (optional)        — per its own license
+
+------------------------------------------------------------------------------
+
+Trademarks
+
+"Android", "Flutter", and "Jetpack Compose" are trademarks of Google LLC.
+"React Native" is a trademark of Meta Platforms, Inc. "Expo" is a trademark of
+Expo (650 Industries, Inc.). "Figma" is a trademark of Figma, Inc. "Claude" and
+"Claude Code" are trademarks of Anthropic PBC.
+
+This is an independent, community project. It is not affiliated with, endorsed
+by, sponsored by, or otherwise associated with Google, Meta, Expo, Figma, or
+Anthropic. These names are used only nominatively, to describe the tools and
+platforms these skills interoperate with.

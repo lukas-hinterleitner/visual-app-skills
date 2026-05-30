@@ -1,0 +1,26 @@
+{
+  "skill_name": "react-native-test-android-visually",
+  "evals": [
+    {
+      "id": 1,
+      "name": "vague-test-rn-app",
+      "prompt": "Test my React Native app on Android and tell me if the login screen renders correctly after my change.",
+      "expected_output": "Agent runs preflight (check-devices.sh, node + package manager), reads references/react-native.md for the run command (`npx react-native run-android`), launches it via launch.sh (Metro starts in the same process group), waits for BUILD SUCCESSFUL + Metro 'Bundling 100%' + first frame with no red-box, navigates to the login screen, screenshots via snap.sh, reads Metro/logcat (ReactNative/ReactNativeJS), and reports a verdict.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "expo-app",
+      "prompt": "Run my Expo app on the emulator and check the new profile tab.",
+      "expected_output": "Agent recognizes Expo (app.json/app.config, expo dependency), uses `npx expo run:android` (or a dev client) per references/react-native.md rather than assuming bare RN, finds the package via android.package, waits for the bundle + first frame, navigates to the profile tab, screenshots, and verdicts. Uses local `npx expo`, not the deprecated global expo-cli.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "red-box-detection",
+      "prompt": "The app looks broken on Android after my edit — can you see what's wrong?",
+      "expected_output": "Agent launches the app, screenshots, and detects a React Native red-box error screen in the PNG, then cross-references the Metro/logcat output (ReactNativeJS stack, Hermes) to quote the actual JS error and name the likely offending file. Distinguishes a real red box from benign logcat noise.",
+      "files": []
+    }
+  ]
+}

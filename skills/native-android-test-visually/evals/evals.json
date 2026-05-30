@@ -1,0 +1,26 @@
+{
+  "skill_name": "native-android-test-visually",
+  "evals": [
+    {
+      "id": 1,
+      "name": "vague-test-native-app",
+      "prompt": "Build and run my Android app on the emulator and check if the new settings screen looks right.",
+      "expected_output": "Agent runs preflight (check-devices.sh, ./gradlew --version), reads references/native-android.md, installs via `./gradlew :app:installDebug` through launch.sh, launches the activity with `am start`/`monkey` (Gradle install does NOT auto-launch), waits for the 'Displayed <pkg>/.Activity' logcat signal, navigates to settings, screenshots via snap.sh, reads logcat scoped to the app pid, and reports a verdict.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "build-flavor",
+      "prompt": "Run the free debug variant and verify the upgrade banner shows up.",
+      "expected_output": "Agent lists install tasks (`./gradlew tasks | grep -i install`), picks the correct variant task (e.g. installFreeDebug), resolves the applicationId including any applicationIdSuffix from the flavor, installs + launches, screenshots, confirms the banner is visible, and verdicts.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "compose-recompose-state",
+      "prompt": "Did my Compose change fix the list item alignment?",
+      "expected_output": "Agent installs + launches the app, navigates to the list, screenshots, and judges the list-item alignment against the change. Treats Compose the same as Views for capture purposes; cross-references logcat for recomposition warnings or exceptions only if the screen looks wrong.",
+      "files": []
+    }
+  ]
+}

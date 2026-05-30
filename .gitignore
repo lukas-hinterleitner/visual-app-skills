@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local capture scratch, if anyone runs the skills from inside the repo.
+# (By default screenshots and run logs go to /tmp, not here.)
+screen*.png
+*-run.log
+visual-app-run.*
